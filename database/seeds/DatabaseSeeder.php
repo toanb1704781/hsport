@@ -1,12 +1,13 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\models\employee;
-use App\models\information;
-use App\models\role;
-use App\models\size;
-use App\models\payment;
-use App\models\orderstatus;
+use App\Models\employee;
+use App\Models\information;
+use App\Models\role;
+use App\Models\size;
+use App\Models\payment;
+use App\Models\orderstatus;
+use App\Models\color;
 
 class DatabaseSeeder extends Seeder
 {
@@ -55,6 +56,20 @@ class DatabaseSeeder extends Seeder
             $orderstatus = new orderstatus;
             $orderstatus->status = $value;
             $orderstatus->save();
+        }
+
+        $colorArray = array(
+            "Đỏ"=>"#ff0000", 
+            "Trắng"=>"#ffffff", 
+            "Đen"=>"#000000", 
+            "Vàng"=> "#f2ff42", 
+            "Xanh dương" => "#001eff", 
+        );
+        foreach ($colorArray as $key => $value) {
+            $color = new color;
+            $color->colorName = $key;
+            $color->colorCode = $value;
+            $color->save();
         }
     }
 }
