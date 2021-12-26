@@ -149,6 +149,11 @@ Route::get('forget/', function() {
     session()->forget('cart');
 });
 
+// Clear cache
+Route::get('/clear-cache', function(){
+    $exitCode = Artisan::call('cache:clear');
+}); 
+
 
 
 
